@@ -96,7 +96,7 @@ Zacznijmy od sprawdzenia portu 113. Za pomocą narzędzia wget pobierzmy tajemni
 wget http://10.10.108.33/key_rev_key
 ```
 
-Pobrany plik key_rev_key jest plikiem binarnym, zatem warto spróbować wydobyć z niego informację komedną strings:
+Pobrany plik key_rev_key jest plikiem binarnym, zatem warto spróbować wydobyć z niego informacje komedną strings:
 ```
 strings key_rev_key | less
 ```
