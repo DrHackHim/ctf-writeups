@@ -113,4 +113,11 @@ Nmap wykazał, że logowanie Anonymous do serwisu FTP jest możliwe oraz znajduj
 |_-rw-rw-r--    1 1000     1000       208838 Sep 30  2020 gum_room.jpg
 ```
 Zalogujmy się do serwisu i pobierzmy plik:
-![Default page Apache](img/default_page_apache.png)
+![FTP](img/FTP.JPG)
+
+Sprawdźmy czy plik nie zawiera jakichś ukrytych danych:
+```
+└─$ steghide extract -sf gum_room.jpg
+Enter passphrase: 
+wrote extracted data to "b64.txt".
+```
