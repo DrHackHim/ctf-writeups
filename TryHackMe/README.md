@@ -13,4 +13,4 @@ Ukończenie całej ścieżki zapewni solidne podstawy z zakresu cyberbezpieczeń
 
 | Status | Tytuł                                                                         | Trudność CTF           | Write-up                                 |
 | ---    | ---                                                                            | ---                 | ---                                      |
-| ☑      | [Chocolate Factory](https://tryhackme.com/r/room/chocolatefactory)            | Easy                 | [Tutaj](writeups/)    |
+| ☑      | [Chocolate Factory](https://tryhackme.com/r/room/chocolatefactory)            | Easy                 | [Tutaj](writeups/Chocolate%20Factory/README.md)    |
