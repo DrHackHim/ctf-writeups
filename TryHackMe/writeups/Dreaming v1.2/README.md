@@ -46,7 +46,7 @@ Znaleźliśmy subdomenę app, na której znajduje się folder z aplikacją:
 
 ![App](img/App.JPG)
 
-Po wejściu na stronę przechodzimy do zakładki admin, kóra przenosi nas do panelu logowania:
+Po wejściu na stronę przechodzimy do zakładki admin, która przenosi nas do panelu logowania:
 
 ![Dreaming](img/Dreaming.JPG)
 
@@ -91,7 +91,7 @@ nc -lvnp [Port]
 
 ## Zwiększenie poziomu uprawnień
 
-Po otrzymaniu dostępu do serwera sprawdzamy katalog głowny, jednak nasze uprawnienia nie są wystarczające, aby otwierać znajdujące się tam pliki. Przeszukując system katalogu znajdujemy hasło użytkownika lucien w katalogu /opt:
+Po otrzymaniu dostępu do serwera sprawdzamy katalog głowny, jednak nasze uprawnienia nie są wystarczające, aby otwierać znajdujące się tam pliki. Przeszukując system znajdujemy hasło użytkownika lucien w katalogu /opt:
 
 ![Lucien](img/Lucien.JPG)
 
