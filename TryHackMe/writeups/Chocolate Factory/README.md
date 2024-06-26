@@ -80,7 +80,7 @@ PORT    STATE SERVICE     VERSION
 |_http-title: Site doesn't have a title (text/html).
 |_auth-owners: ERROR: Script execution failed (use -d to debug)
 ```
-Dodatkowo na porcie 113 znajdował się ciekawy link:
+Dodatkowo na porcie 113 można znaleźć ciekawy link:
 ```
 113/tcp open  ident?
 |_auth-owners: ERROR: Script execution failed (use -d to debug)
