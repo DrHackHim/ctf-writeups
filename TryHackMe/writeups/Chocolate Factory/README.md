@@ -48,7 +48,7 @@ Znając otwarte porty możemy przejść do bardziej dokładnego skanu:
 ```sh
 sudo nmap -p 21,22,80,100,101,102,103,104,105,106,107,108,109,110,111,112,113,114,115,116,117,118,119,120,121,122,123,124,125 -sV -sC 10.10.108.33
 ```
-Porty: 80 (HTTP), 21 (FTP) i 22 (SSH) są najbardziej interesujące ze względów bezpieczeństwa, reszta otwrtych portów to nieco mniej ciekawe usługi.
+Porty: 80 (HTTP), 21 (FTP) i 22 (SSH) są najbardziej interesujące ze względów bezpieczeństwa, reszta otwartych portów to nieco mniej ciekawe usługi.
 
 ```
 PORT    STATE SERVICE     VERSION
