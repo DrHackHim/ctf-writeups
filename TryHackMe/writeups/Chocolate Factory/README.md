@@ -130,7 +130,7 @@ Wygląda to na kodowanie base64, wykorzystajmy narzędzie CyberChef:
 
 ![CyberChef](img/CyberChef.JPG)
 
-Odkodowany tekst jest plikiem /shadow używanym w systemie Linux. Hasło użytkownika charlie jest zapisane w formacie hash, a dokładniej w SHA-512, co widać po pierwszych trzech znakach. ($6$ = SHA-512 | $5$=SHA=256 itd.)
+Odkodowany tekst jest plikiem /shadow używanym w systemie Linux. Hasło użytkownika charlie jest zapisane w formacie hash, a dokładniej w SHA-512, co widać po pierwszych trzech znakach. (\$6\$ = SHA-512 | \$5\$=SHA=256 itd.)
 
 ```
 charlie:$6$CZJnCPeQWp9/jpNx$khGlFdICJnr8R3JC/jTR2r7DrbFLp8zq8469d3c0.zuKN4se61FObwWGxcHZqO2RJHkkL1jjPYeeGyIJWE82X/:18535:0:99999:7:::
