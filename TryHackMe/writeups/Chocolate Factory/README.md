@@ -113,6 +113,7 @@ Nmap wykazał, że logowanie Anonymous do serwisu FTP jest możliwe oraz znajduj
 |_-rw-rw-r--    1 1000     1000       208838 Sep 30  2020 gum_room.jpg
 ```
 Zalogujmy się do serwisu i pobierzmy plik:
+
 ![FTP](img/FTP.JPG)
 
 Sprawdźmy czy plik nie zawiera jakichś ukrytych danych:
@@ -121,3 +122,28 @@ Sprawdźmy czy plik nie zawiera jakichś ukrytych danych:
 Enter passphrase: 
 wrote extracted data to "b64.txt".
 ```
+Udało się wydobyć ukryte dane, które zostały zapisane do pliku b64.txt:
+
+![B64](img/B64.JPG)
+
+Wygląda to na kodowanie base64, wykorzystajmy narzędzie CyberChef:
+
+![CyberChef](img/CyberChef.JPG)
+
+Odkodowany tekst jest plikiem /shadow używanym w systemie Linux. Hasło użytkownika charlie jest zapisane w formacie hash, a dokładniej w SHA-512, co widać po pierwszych trzech znakach. ($6$ = SHA-512 | $5$=SHA=256 itd.)
+
+```
+charlie:$6$CZJnCPeQWp9/jpNx$khGlFdICJnr8R3JC/jTR2r7DrbFLp8zq8469d3c0.zuKN4se61FObwWGxcHZqO2RJHkkL1jjPYeeGyIJWE82X/:18535:0:99999:7:::
+```
+Stwórzmy plik tesktowy hash.txt z poniższym hashem:
+```
+$6$CZJnCPeQWp9/jpNx$khGlFdICJnr8R3JC/jTR2r7DrbFLp8zq8469d3c0.zuKN4se61FObwWGxcHZqO2RJHkkL1jjPYeeGyIJWE82X/
+```
+A następnie spróbujmy go złamać przy użyciu narzędzia john:
+```
+john --format=sha512crypt --wordlist=/usr/share/wordlists/rockyou.txt hash.txt
+```
+Po chwili udaje się złamać hasha:
+
+![John](img/John.JPG)
+
