@@ -139,7 +139,7 @@ Stwórzmy plik tesktowy hash.txt z poniższym hashem:
 ```
 $6$CZJnCPeQWp9/jpNx$khGlFdICJnr8R3JC/jTR2r7DrbFLp8zq8469d3c0.zuKN4se61FObwWGxcHZqO2RJHkkL1jjPYeeGyIJWE82X/
 ```
-A następnie spróbujmy go złamać przy użyciu narzędzia john:
+A następnie spróbujmy złamać hash przy użyciu narzędzia john:
 ```
 john --format=sha512crypt --wordlist=/usr/share/wordlists/rockyou.txt hash.txt
 ```
