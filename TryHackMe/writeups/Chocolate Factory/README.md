@@ -91,7 +91,7 @@ Dodatkowo na porcie 113 można znaleźć ciekawy link:
 ## Skanowanie
 
 ### Port 113
-Zacznijmy od sprawdzenia portu 113, za pomocą narzędzia wget:
+Zacznijmy od sprawdzenia portu 113. Za pomocą narzędzia wget pobierzmy tajemniczy plik:
 ```
 wget http://10.10.108.33/key_rev_key
 ```
