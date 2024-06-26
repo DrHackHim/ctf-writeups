@@ -213,7 +213,6 @@ flag{cd5509042371b34e4826e4838b522d2e}
 Za pomocą poniższej komedny sprawdzamy uprawnienia użytkownika charlie w systemie:
 
 ```
-
 charlie@chocolate-factory:/home/charlie$ sudo -l
 Matching Defaults entries for charlie on chocolate-factory:
     env_reset, mail_badpass, secure_path=/usr/local/sbin\:/usr/local/bin\:/usr/sbin\:/usr/bin\:/sbin\:/bin\:/snap/bin
