@@ -1,3 +1,9 @@
 # Chocolate Factory
+IP=10.10.108.33
 
-Po właczeniu maszyny wykonujemy scan narzędziem nmap:
+##Po właczeniu maszyny wykonujemy scan narzędziem nmap:
+
+```sh
+sudo nmap -p- 10.10.108.33
+```
+
