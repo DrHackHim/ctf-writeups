@@ -1,12 +1,10 @@
-# TryHackMe: Free Cybersecurity Path
+# TryHackMe: Darmowa Ścieżka 
 
-This comprehensive [TryHackMe](https://tryhackme.com) learning path is designed to guide you from a novice to an expert within the cybersecurity domain. 
+Ta ścieżka na [TryHackMe](https://tryhackme.com) pomoże zwiększyć Twoje umiejętności z cyberbezpieczeństwa, oferując szeroki zakres materiałów edukacyjnych i praktycznych wyzwań.
 
-It offers a diverse selection of practical exercises, introductory CTFs, and educational modules that encompass a broad spectrum of topics, including OpenVPN, Linux fundamentals, web scanning, and Metasploit, all available at no cost.
+Zawiera ona różnorodne zadania typu Capture The Flag (CTF), które są bezpłatne dla wszystkich użytkowników. Te zadania są zaprojektowane tak, aby symulować realistyczne scenariusze cyberataków, co pozwala uczestnikom na zdobywanie praktycznej wiedzy i doświadczenia w bezpiecznym, kontrolowanym środowisku.
 
-Suitable for individuals new to the field or those seeking to refine their existing skills, this learning path provides a valuable resource for all.
-
-Upon completion, you will have established a robust foundation in cybersecurity, equipping you with the knowledge and expertise necessary to tackle advanced challenges and real-world situations.
+Ukończenie całej ścieżki zapewni solidne podstawy z zakresu cyberbezpieczeństwa, obejmujące różnorodne aspekty takie jak analiza podatności, eksploracja sieci, kryptografia oraz techniki wykrywania i przeciwdziałania atakom. Dzięki temu uczestnicy zdobędą nie tylko teoretyczną wiedzę, ale również umiejętności praktyczne, które są niezbędne w codziennej pracy specjalisty ds. bezpieczeństwa IT.
 
 <details>
   <summary>
@@ -21,7 +19,7 @@ Upon completion, you will have established a robust foundation in cybersecurity,
 <!-- ☐ -->
 <!-- ☑ -->
 
-| Status | Room Title                                                                    | Category            | Write-up                                 |
+| Status | Tytuł                                                                         | Kategoria           | Write-up                                 |
 | ---    | ---                                                                           | ---                 | ---                                      |
 | ☑      | [Tutorial](https://tryhackme.com/room/tutorial)                               | Intro               |                                          |
 | ☑      | [OpenVPN](https://tryhackme.com/room/openvpn)                                 | Intro               |                                          |
