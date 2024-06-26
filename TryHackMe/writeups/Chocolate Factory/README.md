@@ -147,3 +147,14 @@ Po chwili udaje się złamać hasha:
 
 ![John](img/John.JPG)
 
+Znalezione hasło użytkownika Charlie:
+
+```
+cn7824
+```
+
+### Port 80
+
+Na porcie 80 znajduje się strona internetowa z panelem logowania:
+
+![login_page](img/login_page.jpg)
