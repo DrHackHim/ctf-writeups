@@ -90,6 +90,7 @@ Dodatkowo na porcie 113 znajdował się ciekawy link:
 ```
 ## Skanowanie
 
+### Port 113
 Zacznijmy od sprawdzenia portu 113, za pomocą narzędzia wget:
 ```
 wget http://10.10.108.33/key_rev_key
@@ -104,3 +105,12 @@ Wynik:
  congratulations you have found the key:   
 b'-VkgXhFf6sAEcAwrC6YR-SZbiuSb8ABXeQuvhcGSQzY='
 ```
+### Port 21
+Nmap wykazał, że logowanie Anonymous do serwisu FTP jest możliwe oraz znajduje się tam plik w foramcie jpg:
+```
+21/tcp  open  ftp         vsftpd 3.0.3
+| ftp-anon: Anonymous FTP login allowed (FTP code 230)
+|_-rw-rw-r--    1 1000     1000       208838 Sep 30  2020 gum_room.jpg
+```
+Zalogujmy się do serwisu i pobierzmy plik:
+![Default page Apache](img/default_page_apache.png)
