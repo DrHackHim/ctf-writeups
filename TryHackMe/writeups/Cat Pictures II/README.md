@@ -165,7 +165,7 @@ Title: :8080/764efa883dda1e11db47671c4a3bbd9e.txt
 
 Przechodzimy do ukrytego pliku:
 
-![UkrytaNotatka](img/UkrytaNotatk.JPG)
+![UkrytaNotatka](img/UkrytaNotatka.JPG)
 
 Znajdujemy dane do logowania, które wykorzystamy na porcie 3000:
 
