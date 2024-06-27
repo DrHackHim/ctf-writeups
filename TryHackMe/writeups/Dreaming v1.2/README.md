@@ -310,4 +310,4 @@ W katalogu domowym znajdujemy trzecią flagę:
 
 ![Morpheus_flag](img/Morpheus_flag.JPG)
 
-
+Do zobaczenia na kolejnych CTF-ach!
