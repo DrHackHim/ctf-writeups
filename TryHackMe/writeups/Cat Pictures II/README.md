@@ -198,7 +198,7 @@ W repozytorium znajduje się plik playbook.yaml, który możemy edytować, co da
 
 ### Port 1337
 
-Na porcie 1337 znajduje się aplikacja, która umożliwia miedzy innymi wykonanie: backup-u, komendy ping oraz uruchomienie Ansible Playbook:
+Na porcie 1337 znajduje się aplikacja, która pozwala między innymi na uruchomienie Ansible Playbook:
 
 ![OliveTin](img/OliveTin.JPG)
 
