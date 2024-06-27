@@ -6,6 +6,9 @@ Przeprowadzamy wstępny skan za pomocą narzędzia nmap:
 ```sh
 sudo nmap -sV -sC 10.10.223.148
 ```
+
+Otrzymujemy następujące wyniki:
+
 ```
 Starting Nmap 7.92 ( https://nmap.org ) at 2024-06-26 13:46 EDT
 Nmap scan report for 10.10.223.148
