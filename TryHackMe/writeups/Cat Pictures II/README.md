@@ -236,5 +236,34 @@ W pliku flag2.txt znajdujemy drugą flagę:
 
 ![Flag2](img/Flag2.JPG)
 
+## Zwiększenie poziomu uprawnień
 
+Za pomocą poniższej komendy sprawdzamy wersję sudo:
+
+```
+sudo -V
+```
+
+![Sudo](img/Sudo.JPG)
+
+Ta wersja sudo jest podatna. Korzystając z [exploita](https://github.com/CptGibbon/CVE-2021-3156) możemy uzyskać uprawnienia root. Wgrywamy potrzebne pliki do folderu /tpm i wykonujemy komendy:
+
+![Root](img/Root.JPG)
+
+```
+make
+```
+```
+./exploit
+```
+
+W pliku flag3.txt znajdujemy trzecią flagę:
+
+![Flag3](img/Flag3.JPG)
+
+```
+6d2a9f8f8174e86e27d565087a28a971
+```
+
+Do zobaczenia na kolejnych CTF-ach!
 
