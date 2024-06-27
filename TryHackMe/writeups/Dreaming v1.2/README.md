@@ -198,7 +198,7 @@ def getDreams():
 getDreams()
 ```
 
-Skrypt ten wykorzystuje bibliotekę DB do wysyłania zapytań i wyświetlania zawartości dwóch kolumn kolumn w formacie: {dreamer} + {dream}. W pliku .bash_history w katalogu domowym użytkownika lucien znaleźlismy hasło użytkownika lucien, które można wykorzystać do zalogowania się do MYSQL:
+Skrypt ten wykorzystuje bibliotekę DB do wysyłania zapytań i wyświetlania zawartości dwóch kolumn kolumn w formacie: {dreamer} + {dream}. W pliku .bash_history w katalogu domowym użytkownika lucien znaleźliśmy hasło użytkownika lucien, które można wykorzystać do zalogowania się do MYSQL:
 
 ![MYSQL](img/MYSQL.JPG)
 
