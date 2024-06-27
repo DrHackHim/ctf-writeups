@@ -248,14 +248,14 @@ sudo -V
 
 Ta wersja sudo jest podatna. Korzystając z [exploita](https://github.com/CptGibbon/CVE-2021-3156) możemy uzyskać uprawnienia root. Wgrywamy potrzebne pliki do folderu /tpm i wykonujemy komendy:
 
-![Root](img/Root.JPG)
-
 ```
 make
 ```
 ```
 ./exploit
 ```
+
+![Root](img/Root.JPG)
 
 W pliku flag3.txt znajdujemy trzecią flagę:
 
