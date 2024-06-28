@@ -105,6 +105,8 @@ Logując się do panelu lub bezpośrednio przechodząc do notatki widzimy, że d
 
 ![Notka](img/Notka.JPG)
 
+### Port 37370
+
 Logujemy się do serwisu ftp na porcie 37370:
 
 ```
@@ -122,5 +124,58 @@ Password: california
 Znajdujemy 3 pliki z rozszerzeniem .pcapng i pobieramy je:
 
 ![Ls](img/Ls.JPG)
+
+```
+mget *
+```
+![Mget](img/Mget.JPG)
+
+Otwieramy plik w programie do analizy ruchu siecowego np. Wireshark siemHTTP2.pcapng, a następnie przechodząc kolejno przez opcje: File -> Export Objects -> HTTP znajdujemy stronę index.html:
+
+![Index](img/Index.JPG)
+
+Pobieramy go i otwieramy:
+
+![IndexFile](img/IndexFile.JPG)
+
+Znalezione dane można wykrozystać do logowania w serwisie ssh:
+
+```
+valleyDev:ph0t0s1234
+```
+
+## Eksploitacja
+
+### Port 22
+
+Logujemy się przez ssh używając znalezionych danych do logowania komedną:
+
+```
+ssh valleyDev@10.10.177.139
+```
+
+![SSH](img/SSH.JPG)
+
+W pliku user.txt znajdujemy pierwszą flagę:
+
+```
+THM{k@l1_1n_th3_v@lley}
+```
+
+![Flag1](img/Flag1.JPG)
+
+## Zwiększenie poziomu uprawnień
+
+Za pomocą poniższej komendy sprawdzamy uprawnienia użytkownika valleyDev:
+
+```
+sudo -l
+```
+
+![Sudo](img/Sudo.JPG)
+
+
+
+
 
 
