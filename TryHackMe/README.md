@@ -16,3 +16,4 @@ Ukończenie całej ścieżki zapewni solidne podstawy z zakresu cyberbezpieczeń
 | ☑      | [Chocolate Factory](https://tryhackme.com/r/room/chocolatefactory)            | Easy                 | [Tutaj](writeups/Chocolate%20Factory/README.md)    |
 | ☑      | [Dreaming v1.2](https://tryhackme.com/r/room/dreaming)                    | Easy                 | [Tutaj](writeups/Dreaming%20v1.2/README.md)    |
 | ☑      | [Cat Pictures II v2.4](https://tryhackme.com/r/room/catpictures2)                    | Easy                 | [Tutaj](writeups/Cat%20Pictures%20II/README.md)    |
+| ☑      | [TheValley](https://tryhackme.com/r/room/valleype)                    | Easy                 | [Tutaj](writeups/TheValley/README.md)    |
