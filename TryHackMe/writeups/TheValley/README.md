@@ -166,6 +166,8 @@ THM{k@l1_1n_th3_v@lley}
 
 ## Zwiększenie poziomu uprawnień
 
+### valleyDev -> valley
+
 Za pomocą poniższej komendy sprawdzamy uprawnienia użytkownika valleyDev:
 
 ```
@@ -174,8 +176,57 @@ sudo -l
 
 ![Sudo](img/Sudo.JPG)
 
+W pliku crontab znajdujemy proces wykonywany przez użytkownika root, który odpala pewien skrypt:
 
+![Crontab](img/Crontab.JPG)
 
+Skrypt importuje bibliotekę base64, co daje potencjalny wektor ataku, jeżeli jesteśmy w stanie edytować ten plik: 
 
+![Photos](img/Photos.JPG)
+
+Dostęp do pliku ma użytkownik valley, więc najpierw musimy zdobyć uprawnienia tego użytkownika:
+
+![Phyton](img/Python.JPG)
+
+W katalogu /home znajdujemy plik valleyAuthenticator
+
+![Auth](img/Auth.JPG)
+
+Pobieramy plik z serwera komendą:
+
+```
+scp username@hostname:/path/to/remote/file /path/to/local/file
+```
+```
+scp valleyDev@10.10.177.139:/home/valleyAuthenticator /home/kali
+```
+
+Wyciągamy z pliku słowa komendą 'strings' i zapisujemy je w pliku:
+
+![Strings](img/Strings.JPG)
+
+Znajdujemy ciąg znaków przypominający hash:
+
+![Hash](img/Hash.JPG)
+
+```
+e6722920bab2326f8217e4bf6b1b58ac
+```
+
+Łamiemy hash za pomocą CrackStation:
+
+![Crack](img/Crack.JPG)
+
+```
+liberty123
+```
+
+Zmieniamy użytkownika na valley przy pomocy zdobytego hasła:
+
+```
+valley:liberty123
+```
+
+![UserValley](img/UserValley.JPG)
 
 
