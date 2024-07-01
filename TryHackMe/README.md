@@ -6,8 +6,6 @@ Zawiera ona różnorodne zadania typu Capture The Flag (CTF), które są bezpła
 
 Ukończenie całej ścieżki zapewni solidne podstawy z zakresu cyberbezpieczeństwa, obejmujące różnorodne aspekty takie jak analiza podatności, eksploracja sieci, kryptografia oraz techniki wykrywania i przeciwdziałania atakom. Dzięki temu uczestnicy zdobędą nie tylko teoretyczną wiedzę, ale również umiejętności praktyczne, które są niezbędne w codziennej pracy specjalisty ds. bezpieczeństwa IT.
 
-<br/>
-
 <!-- ☐ -->
 <!-- ☑ -->
 
