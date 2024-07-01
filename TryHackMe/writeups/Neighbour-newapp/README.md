@@ -87,6 +87,8 @@ W źródle strony znajdujemy komenatrz, że konto administartora może mieć pod
 <!-- admin account could be vulnerable, need to update -->
 ```
 
+## Eksploitacja
+
 Testujemy, czy można uzyskać dostęp do innych profili poprzez manipulację parametrem "user" w URL:
 
 ![Guest123](img/Guest123.JPG)
