@@ -16,3 +16,4 @@ Ukończenie całej ścieżki zapewni solidne podstawy z zakresu cyberbezpieczeń
 | ☑      | [Cat Pictures II v2.4](https://tryhackme.com/r/room/catpictures2)                    | Easy                 | [Tutaj](writeups/Cat%20Pictures%20II/README.md)    |
 | ☑      | [TheValley](https://tryhackme.com/r/room/valleype)                    | Easy                 | [Tutaj](writeups/TheValley/README.md)    |
 | ☑      | [Neighbour-newapp](https://tryhackme.com/r/room/neighbour)                    | Easy                 | [Tutaj](writeups/Neighbour-newapp/README.md)    |
+| ☑      | [Surfer](https://tryhackme.com/r/room/surfer)                    | Easy                 | [Tutaj](writeups/Surfer/README.md)    |
