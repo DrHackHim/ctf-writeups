@@ -17,3 +17,4 @@ Ukończenie całej ścieżki zapewni solidne podstawy z zakresu cyberbezpieczeń
 | ☑      | [TheValley](https://tryhackme.com/r/room/valleype)                    | Easy                 | [Tutaj](writeups/TheValley/README.md)    |
 | ☑      | [Neighbour-newapp](https://tryhackme.com/r/room/neighbour)                    | Easy                 | [Tutaj](writeups/Neighbour-newapp/README.md)    |
 | ☑      | [Surfer](https://tryhackme.com/r/room/surfer)                    | Easy                 | [Tutaj](writeups/Surfer/README.md)    |
+| ☑      | [Intermediate Nmap](https://tryhackme.com/r/room/intermediatenmap)         | Easy                 | [Tutaj](writeups/Intermediate%20Nmap/README.md)    |
