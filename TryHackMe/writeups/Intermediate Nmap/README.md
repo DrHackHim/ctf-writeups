@@ -10,7 +10,7 @@ sudo nmap -p- 10.10.133.187
 
 Otrzymujemy następujące wyniki:
 
-Port 31337 jest portem bardzo wysokim, dlatego to od niego zaczniemy.
+Port 31337 jest portem bardzo wysokim, a co za tym idzie - ciekawym, dlatego to od niego zaczniemy.
 
 ## Skanowanie
 
