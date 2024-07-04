@@ -34,7 +34,7 @@ Rozpoczynamy od sprawdzenia portu 80. Skan narzędzia nmap wykrył, że jest to 
 
 ## Eksploitacja
 
-Widzimy, że ta wersja jest podatna. Pobieramy exploit'a i wykorzystujemy go do uzyskania backdoor'a. Odpalamy skrypt podając adres url maszyny atakowanej:
+Widzimy, że ta wersja jest podatna. Pobieramy [exploit'a](https://github.com/flast101/php-8.1.0-dev-backdoor-rce/blob/main/backdoor_php_8.1.0-dev.py) i wykorzystujemy go do uzyskania backdoor'a. Odpalamy skrypt podając adres url maszyny atakowanej:
 
 ![Access](img/Access.JPG)
 
