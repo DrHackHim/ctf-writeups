@@ -35,7 +35,7 @@ Widzimy stronę internetową zawierającą panel logowania. Przechodzimy do nieg
 
 ![Login](img/Login.JPG)
 
-Aby zdobyć flagę musimy się zalogować. Próbujemy się zalogować, ale zostało podane złe hasło:
+Aby zdobyć flagę musimy się zalogować. Próbujemy logowania przy pomocy domyślnych danych, jednak bezskutecznie:
 
 ![Incorrect](img/Incorrect.JPG)
 
