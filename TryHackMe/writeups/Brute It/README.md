@@ -151,7 +151,7 @@ THM{a_password_is_not_a_barrier}
 
 ## Zwiększenie poziomu uprawnień
 
-Sprwadzamy jakie komendy użytkownik john może wykonać jako root:
+Sprawdzamy, jakie komendy użytkownik john może wykonać jako root:
 
 ![Cat](img/Cat.JPG)
 
