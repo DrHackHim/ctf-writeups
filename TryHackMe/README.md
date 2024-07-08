@@ -20,4 +20,4 @@ Ukończenie całej ścieżki zapewni solidne podstawy z zakresu cyberbezpieczeń
 | ☑      | [Intermediate Nmap](https://tryhackme.com/r/room/intermediatenmap)         | Easy                 | [Tutaj](writeups/Intermediate%20Nmap/README.md)    |
 | ☑      | [Agent T VM](https://tryhackme.com/r/room/agentt)         | Easy                 | [Tutaj](writeups/Agent%20T%20VM/README.md)    |
 | ☑      | [Cyber Heroes](https://tryhackme.com/r/room/cyberheroes)         | Easy                 | [Tutaj](writeups/Cyber%20Heroes/README.md)    |
-| ☑      | [Cyborg](https://tryhackme.com/r/room/cyborgt8)         | Easy                 | [Tutaj](writeups/Cyborg/README.md)    |
+| ☐      | [Cyborg](https://tryhackme.com/r/room/cyborgt8)         | Easy                 | [Tutaj](writeups/Cyborg/README.md)    |
