@@ -109,11 +109,13 @@ x1a9TrlunTcJJZJWKrMTEL4LRWPwR0tsb25tOuUr6DP/Hr52MLaLg1yIGR81cR+W
 -----END RSA PRIVATE KEY-----
 ```
 
-Zapisujemy go do pliku i nadajemy mu uprawnienia:
+## Eksploitacja
+
+Zapisujemy klucz prywatny RSA do pliku i nadajemy mu uprawnienia:
 
 ![RSA](img/RSA.JPG)
 
-Następnie zmieniamy format, aby był zrozumiany przez narzędzie John:
+Następnie zmieniamy format, aby był zrozumiały dla John'a:
 
 ![SSH2JOHN](img/SSH2JOHN.JPG)
 
@@ -139,4 +141,38 @@ Ponownie logujemy się do systemu za pomocą SSH:
 
 ![SSH](img/SSH.JPG)
 
+W katalogu domowym znajdujemy kolejną flagę w pliku user.txt:
 
+![Flag1](img/Flag1.JPG)
+
+```
+THM{a_password_is_not_a_barrier}
+```
+
+## Zwiększenie poziomu uprawnień
+
+Sprwadzamy jakie komendy użytkownik john może wykonać jako root:
+
+![Cat](img/Cat.JPG)
+
+Odczytujemy plik "shadow" i zapisujemy zahashowane hasło root'a:
+
+![Shadow](img/Shadow.JPG)
+
+Następnie łamiemy hash'a:
+
+![Root](img/Root.JPG)
+
+Znając hasło użytkownika root logujemy się na jego konto:
+
+![Proof](img/Proof.JPG)
+
+Odczytujemy ostatnią flagę z pliku root.txt:
+
+![Flag2](img/Flag2.JPG)
+
+```
+THM{pr1v1l3g3_3sc4l4t10n}
+```
+
+Do zobaczenia na kolejnych CTF-ach!
