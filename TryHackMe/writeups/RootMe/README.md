@@ -1,4 +1,4 @@
-![image](https://github.com/DrHackHim/ctf-writeups/assets/173884649/6724b43c-2b40-431d-a157-96793e6ce59d)# RootMe
+# RootMe
 IP=10.10.227.119
 
 ## Rekonesans
