@@ -77,8 +77,6 @@ Widzimy, że skrypt został wgrany pomyślnie. Po ustawieniu nasłuchiwania prze
 nc -lvnp 4444
 ```
 
-![Success](img/Success.JPG)
-
 ![Nc](img/Nc.JPG)
 
 Otrzymujemy dostęp do serwera przez reverse-shell'a. W pliku /var/www/user.txt znajdujemy pierwszą flagę:
