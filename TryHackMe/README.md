@@ -22,3 +22,4 @@ Ukończenie całej ścieżki zapewni solidne podstawy z zakresu cyberbezpieczeń
 | ☑      | [Cyber Heroes](https://tryhackme.com/r/room/cyberheroes)         | Easy                 | [Tutaj](writeups/Cyber%20Heroes/README.md)    |
 | ☐      | [Cyborg](https://tryhackme.com/r/room/cyborgt8)         | Easy                 | [Tutaj](writeups/Cyborg/README.md)    |
 | ☑      | [Brute It](https://tryhackme.com/r/room/bruteit)         | Easy                 | [Tutaj](writeups/Brute%20It/README.md)    |
+| ☑      | [RootMe](https://tryhackme.com/r/room/rrootme)         | Easy                 | [Tutaj](writeups/RootMe/README.md)    |
