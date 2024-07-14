@@ -118,6 +118,73 @@ W pliku root.txt znajdujemy drugą flagę:
 
 ## Skanowanie (druga możliwa droga do zdobycia flag)
 
+### Port 80
+Rozpoczynamy od sprawdzenia portu 80. Na stronie jest umieszczone zdjęcie nawiązujące do tytułu tego ctf'a:
+
+![80](img/80.JPG)
+
+W źródle strony znajdujemy podpowiedź:
+
+![Steg](img/Steg.JPG)
+
+## Eksploitacja
+
+Pobieramy to zdjęcie i łamiemy hasło za pomocą narzędzia stegcracker:
+
+```
+stegcracker brooklyn99.jpg
+```
+
+![Stegcracker](img/Stegcracker.JPG)
+
+Używamy hasła do wyciągnięcia ukrytych imformacji z pobranego pliku:
+
+```
+steghide extract -sf brooklyn99.jpg
+```
+
+![Steghide](img/Steghide.JPG)
+
+Logujemy się do systemu za pomocą ssh:
+
+```
+ssh holt@10.10.118.60
+```
+
+```
+holt:fluffydog12@ninenine
+```
+
+![Holt](img/Holt.JPG)
+
+W katalogu domowym użytkownika holt znajdujemy pierwszą flagę:
+
+![Flag1](img/Flag1.JPG)
+
+```
+ee11cbb19052e40b07aac0ca060c23ee
+```
+
+## Zwiększenie poziomu uprawnień
+
+Widzimy, że użytkownik holt może wykonać komendę nano: 
+
+![Nano](img/Nano.JPG)
+
+Wykorzystujemy [exploita](https://gtfobins.github.io/gtfobins/nano/), aby zdobyć uprawnienia root'a:
+
+![Sudo](img/Sudo.JPG)
+
+Zgodnie z instrukcją wpisujemy "sudo nano", następnie klikamy CTRL + R oraz CTRL + X. Po wpisaniu "reset; sh 1>&0 2>&0" i zatwierdzeniu enter'em zdobywamy uprawnienia root:
+
+![Flag2v2](img/Flag2v2.JPG)
+
+W pliku root.txt znajdujemy drugą flagę:
+
+```
+63a9f0ea7bb98050796b649e85481845
+```
+
 Do zobaczenia na kolejnych CTF-ach!
 
 
