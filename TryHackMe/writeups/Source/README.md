@@ -41,7 +41,7 @@ Widzimy, że serwis jest prawdopodobnie podatny i można uzyskać nieautoryzowan
 
 ## Eksploitacja
 
-Pobieramy [exploita](https://github.com/foxsin34/WebMin-1.890-Exploit-unauthorized-RCE/blob/master/webmin-1.890_exploit.py) ,nadajemy mu uprawnienia do wykonywania oraz uruchamiamy go:
+Pobieramy [exploita](https://github.com/foxsin34/WebMin-1.890-Exploit-unauthorized-RCE/blob/master/webmin-1.890_exploit.py), nadajemy mu uprawnienia do wykonywania oraz uruchamiamy go:
 
 ![Exploit](img/Exploit.JPG)
 
