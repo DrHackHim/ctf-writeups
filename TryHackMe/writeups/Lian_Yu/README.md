@@ -118,6 +118,9 @@ Logujemy się do serwisu FTP za pomocą znalezionych danych i pobieramy znajduj�
 vigilante:!#th3h00d
 ```
 
+![FTP](img/FTP.JPG)
+
+
 W pobranym pliku .other_user znajdujemy potencjalną nazwę użytkownika:
 
 ![Other](img/Other.JPG)
