@@ -123,6 +123,7 @@ vigilante:!#th3h00d
 
 W pobranym pliku .other_user znajdujemy potencjalną nazwę użytkownika:
 
+![Other2](img/Other2.JPG)
 ![Other](img/Other.JPG)
 
 ```
