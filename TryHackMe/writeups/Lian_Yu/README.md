@@ -139,7 +139,7 @@ password
 ```
 Wykorzystując program StegHide otrzymujemy dostęp do ukrytych informacji:
 
-[Aa](img/Aa.JPG)
+![Aa](img/Aa.JPG)
 
 ### Port 22
 
@@ -149,11 +149,11 @@ Plik shado zawiera potencjalne hasło. Próbujemy zalogować się do serwisu SSH
 slade:M3tahuman
 ```
 
-[SSH](img/SSH.JPG)
+![SSH](img/SSH.JPG)
 
  w pliku user.txt znajdujemy pierwszą flagę:
 
-[Flag1](img/Flag1.JPG)
+![Flag1](img/Flag1.JPG)
 
 ```
 THM{P30P7E_K33P_53CRET5__C0MPUT3R5_D0N'T}
@@ -167,7 +167,7 @@ Za pomocą poniższej komendy sprawdzamy uprawnienia użytkownika slade:
 sudo -l
 ```
 
-[Pkexec](img/Pkexec.JPG)
+![Pkexec](img/Pkexec.JPG)
 
 Użytkownik slade może uruchomić komendę pkexec jako root. Wykorzystujemy to do uzyskania dostępu do konta root:
 
@@ -175,11 +175,11 @@ Użytkownik slade może uruchomić komendę pkexec jako root. Wykorzystujemy to 
 sudo pkexec /bin/sh
 ```
 
-[Root](img/Root.JPG)
+![Root](img/Root.JPG)
 
 W pliku root.txt znajdujemy drugą flagę:
 
-[Flag2](img/Flag2.JPG)
+![Flag2](img/Flag2.JPG)
 
 ```
 THM{MY_W0RD_I5_MY_B0ND_IF_I_ACC3PT_YOUR_CONTRACT_THEN_IT_WILL_BE_COMPL3TED_OR_I'LL_BE_D34D}
