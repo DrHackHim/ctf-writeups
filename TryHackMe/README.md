@@ -26,3 +26,4 @@ Ukończenie całej ścieżki zapewni solidne podstawy z zakresu cyberbezpieczeń
 | ☑      | [Brooklyn nine nine](https://tryhackme.com/r/room/brooklynninenine)         | Easy                 | [Tutaj](writeups/Brooklyn99%20CTF/README.md)    |
 | ☑      | [Source](https://tryhackme.com/r/room/source)         | Easy                 | [Tutaj](writeups/Source/README.md)    |
 | ☑      | [Lian_Yu](https://tryhackme.com/r/room/lianyu)         | Easy                 | [Tutaj](writeups/Lian_Yu/README.md)    |
+| ☑      | [Agent-sudo](https://tryhackme.com/r/room/agentsudoctf)         | Easy                 | [Tutaj](writeups/Agent-sudo/README.md)    |
