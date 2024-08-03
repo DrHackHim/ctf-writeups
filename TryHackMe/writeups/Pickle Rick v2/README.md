@@ -55,7 +55,7 @@ Przechodzimy do enumeracji katalogów za pomocą narzędzia ffuf:
 ffuf -w /usr/share/wordlists/dirb/big.txt -u http://10.10.26.100/FUZZ -c -e ".php"
 ```
 
-![Ffuf](img/Ffuf.JPG)
+![FFuf](img/FFuf.JPG)
 
 Sprawdzamy folder "robots.txt":
 
