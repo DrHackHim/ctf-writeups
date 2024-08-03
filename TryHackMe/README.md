@@ -27,3 +27,4 @@ Ukończenie całej ścieżki zapewni solidne podstawy z zakresu cyberbezpieczeń
 | ☑      | [Source](https://tryhackme.com/r/room/source)         | Easy                 | [Tutaj](writeups/Source/README.md)    |
 | ☑      | [Lian_Yu](https://tryhackme.com/r/room/lianyu)         | Easy                 | [Tutaj](writeups/Lian_Yu/README.md)    |
 | ☑      | [Agent-sudo](https://tryhackme.com/r/room/agentsudoctf)         | Easy                 | [Tutaj](writeups/Agent-sudo/README.md)    |
+| ☑      | [Pickle Rick v2](https://tryhackme.com/r/room/picklerick)         | Easy                 | [Tutaj](writeups/Pickle%20Rick%20v2/README.md)    |
