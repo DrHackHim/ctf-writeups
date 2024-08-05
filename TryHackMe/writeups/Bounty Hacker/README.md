@@ -96,7 +96,7 @@ Sprawdzamy uprawnienia użytkownika lin w systemie:
 
 ![Sudo](img/Sudo.JPG)
 
-Widzimy, że użytkownik lin jest w stanie wykonać komendę "tar", jako root. W celu zwiększenia uprawnień wykorzystujemy exploit ze strony [gtfobins](https://gtfobins.github.io/gtfobins/tar/):
+Widzimy, że użytkownik lin jest w stanie wykonać komendę "tar", jako root. W celu zwiększenia uprawnień wykorzystujemy exploit'a ze strony [gtfobins](https://gtfobins.github.io/gtfobins/tar/):
 
 ![Tar](img/Tar.JPG)
 
