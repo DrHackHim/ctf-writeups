@@ -105,7 +105,7 @@ F09EDCB1FCEFC6DFB23DC3505A882655FF77375ED8AA2D1C13F640FCCC2D0C85    |    paule
 
 ### Hash 3
 
-Strona CrackStation nie rozpoznała tego hasha. Na stronie [hashcat'a](https://hashcat.net/wiki/doku.php?id=example_hashes) widzimy, że typ hasha to najprawdopodobniej SHA512 i mode powinien być ustawiony na 1800. Odpalamy hashcat'a:
+Strona CrackStation nie rozpoznała tego hasha. Na stronie [hashcat'a](https://hashcat.net/wiki/doku.php?id=example_hashes) widzimy, że typ hash'a to najprawdopodobniej SHA512 i mode powinien być ustawiony na 1800. Odpalamy hashcat'a:
 
 ```
 hashcat -m 1800 -a 0 hash.txt /usr/share/wordlists/rockyou.txt
@@ -113,7 +113,7 @@ hashcat -m 1800 -a 0 hash.txt /usr/share/wordlists/rockyou.txt
 
 ![Hash3](img/Hash3.JPG)
 
-Hash ten można też złamać za pomocą [strony](https://hashes.com/en/decrypt/hash):
+Hash ten można też złamać za pomocą strony [hashes.com](https://hashes.com/en/decrypt/hash):
 
 ![23](img/23.JPG)
 
@@ -137,7 +137,7 @@ e5d8870e5bdd26602cab8dbe07a942c8669e56d6:tryhackme
 
 ![Hash4](img/Hash4.JPG)
 
-Hash ten można też złamać za pomocą [strony](https://hashes.com/en/decrypt/hash):
+Hash ten można też złamać za pomocą strony [hashes.com](https://hashes.com/en/decrypt/hash):
 
 ![24](img/24.JPG)
 
