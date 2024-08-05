@@ -165,7 +165,7 @@ Sprawdzamy uprawnienia użytkownika james w systemie:
 
 ![Sudo](img/Sudo.JPG)
 
-Użutkownik james nie jest w stanie wykonać komendy "bash". Sprawdzamy czy instnieją jakieś podatności:
+Użytkownik james nie jest w stanie wykonać komendy "bash". Sprawdzamy czy instnieją jakieś podatności:
 
 ![Google](img/Google.JPG)
 
