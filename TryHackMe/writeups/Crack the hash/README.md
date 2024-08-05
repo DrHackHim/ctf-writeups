@@ -67,11 +67,19 @@ Hash ten można też złamać za pomocą innej [strony](https://hashes.com/en/de
 
 ![Hashes](img/Hashes.JPG)
 
+```
+$2y$12$Dwt1BZj6pcyc3Dy1FWZ5ieeUznr71EeNkJkUlypTsgbX1H68wsRom    |    bleh
+```
+
 ### Hash 5
 
 Łamiemy hash za pomocą strony [CrackStation](https://crackstation.net/):
 
 ![5](img/5.JPG)
+
+```
+279412f945939ba78ce0758d3fd83daa    |    Eternity22
+```
 
 ## Level 2
 
@@ -81,11 +89,19 @@ Hash ten można też złamać za pomocą innej [strony](https://hashes.com/en/de
 
 ![21](img/21.JPG)
 
+```
+F09EDCB1FCEFC6DFB23DC3505A882655FF77375ED8AA2D1C13F640FCCC2D0C85    |    paule
+```
+
 ### Hash 2
 
 Łamiemy hash za pomocą strony [CrackStation](https://crackstation.net/):
 
 ![22](img/22.JPG)
+
+```
+1DFECA0C002AE40B8619ECF94819CC1B    |    n63umy8lkf4i
+```
 
 ### Hash 3
 
@@ -101,12 +117,22 @@ Hash ten można też złamać za pomocą [strony](https://hashes.com/en/decrypt/
 
 ![23](img/23.JPG)
 
+```
+$6$aReallyHardSalt$6WKUTqzq.UQQmrm0p/T7MPpMbGNnzXPMAXi4bJMl9be.cfi3/qxIf.hsGpS41BqMhSrHVXgMpdjS6xeKZAs02.    |    waka99
+```
+
 ### Hash 4
 
 Strona CrackStation nie rozpoznała tego hasha. Na stronie [hashcat'a](https://hashcat.net/wiki/doku.php?id=example_hashes) widzimy, że typ hasha to najprawdopodobniej HMAC-SHA1 i mode powinien być ustawiony na 160. Odpalamy hashcat'a:
 
 ```
-hashcat -m 160 -a 0 hash.txt /usr/share/wordlists/rockyou.txt
+hashcat -m 160 -d 1 hash.txt /usr/share/wordlists/rockyou.txt
+```
+
+Zawartość hash.txt to:
+
+```
+e5d8870e5bdd26602cab8dbe07a942c8669e56d6:tryhackme
 ```
 
 ![Hash4](img/Hash4.JPG)
@@ -114,5 +140,9 @@ hashcat -m 160 -a 0 hash.txt /usr/share/wordlists/rockyou.txt
 Hash ten można też złamać za pomocą [strony](https://hashes.com/en/decrypt/hash):
 
 ![24](img/24.JPG)
+
+```
+e5d8870e5bdd26602cab8dbe07a942c8669e56d6:tryhackme    |    481616481616
+```
 
 Do zobaczenia na kolejnych CTF-ach!
