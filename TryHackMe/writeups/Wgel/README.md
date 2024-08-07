@@ -101,4 +101,8 @@ Odczytujemy drugą flagę:
 
 ![Flag2](img/Flag2.jpg)
 
+```
+b1b968b37519ad1daa6408188649263d
+```
+
 Do zobaczenia na kolejnych CTF-ach!
