@@ -34,3 +34,4 @@ Ukończenie całej ścieżki zapewni solidne podstawy z zakresu cyberbezpieczeń
 | ☑      | [Bounty Hacker](https://tryhackme.com/r/room/cowboyhacker)         | Easy               | [Tutaj](writeups/Bounty%20Hacker/README.md)    |
 | ☑      | [Ignite VM](https://tryhackme.com/r/room/ignite)         | Easy               | [Tutaj](writeups/Ignite%20VM/README.md)    |
 | ☑      | [Wgel](https://tryhackme.com/r/room/wgelctf)         | Easy               | [Tutaj](writeups/Wgel/README.md)    |
+| ☑      | [Easy Peasy](https://tryhackme.com/r/room/easypeasyctf)         | Easy               | [Tutaj](writeups/Easy%20Peasy/README.md)    |
