@@ -81,7 +81,7 @@ Znajdujemy tutaj fotografię. Sprawdzamy źródło strony:
 
 ![Base64](img/Base64.JPG)
 
-Widzimy ukryty ciąg znaków zakodowany Base64, który dekodujemy przy pomocy [CyberChef'a](https://gchq.github.io/CyberChef/):
+Widzimy ukryty ciąg znaków zakodowany algorytmem Base64, który dekodujemy przy pomocy [CyberChef'a](https://gchq.github.io/CyberChef/):
 
 ![Flag1](img/Flag1.JPG)
 
