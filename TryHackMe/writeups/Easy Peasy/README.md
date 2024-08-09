@@ -197,11 +197,13 @@ synt{a0jvgf33zfa0ez4y}
 flag{n0wits33msn0rm4l}
 ```
 
+## Zwiększenie poziomu uprawnień
+
 Przechodzimy do katalogu /var/www, w którym znajduje się plik .mysecretcronjob.sh:
 
 ![Cron](img/Cron.JPG)
 
-Plik został stworzony przez użytkownika boring, zatem możemy go edytować przy pomocy komendy nano ustawiając reverse shell'a:
+Plik został stworzony przez użytkownika boring, zatem możemy go edytować przy pomocy komendy nano, ustawiając reverse shell'a:
 
 ![Nano](img/Nano.JPG)
 
