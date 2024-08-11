@@ -29,9 +29,10 @@ Ukończenie całej ścieżki zapewni solidne podstawy z zakresu cyberbezpieczeń
 | ☑      | [Agent-sudo](https://tryhackme.com/r/room/agentsudoctf)         | Easy                 | [Tutaj](writeups/Agent-sudo/README.md)    |
 | ☑      | [Pickle Rick v2](https://tryhackme.com/r/room/picklerick)         | Easy                 | [Tutaj](writeups/Pickle%20Rick%20v2/README.md)    |
 | ☑      | [Mr Robot](https://tryhackme.com/r/room/mrrobot)         | Medium                | [Tutaj](writeups/Mr%20Robot/README.md)    |
-| ☑      | [EasyCTF](https://tryhackme.com/r/room/easyctf)         | Medium                | [Tutaj](writeups/EasyCTF/README.md)    |
+| ☑      | [EasyCTF](https://tryhackme.com/r/room/easyctf)         | Easy                | [Tutaj](writeups/EasyCTF/README.md)    |
 | ☑      | [Crack the hash](https://tryhackme.com/r/room/crackthehash)         | Easy               | [Tutaj](writeups/Crack%20the%20hash/README.md)    |
 | ☑      | [Bounty Hacker](https://tryhackme.com/r/room/cowboyhacker)         | Easy               | [Tutaj](writeups/Bounty%20Hacker/README.md)    |
 | ☑      | [Ignite VM](https://tryhackme.com/r/room/ignite)         | Easy               | [Tutaj](writeups/Ignite%20VM/README.md)    |
 | ☑      | [Wgel](https://tryhackme.com/r/room/wgelctf)         | Easy               | [Tutaj](writeups/Wgel/README.md)    |
 | ☑      | [Easy Peasy](https://tryhackme.com/r/room/easypeasyctf)         | Easy               | [Tutaj](writeups/Easy%20Peasy/README.md)    |
+| ☑      | [GoldenEye](https://tryhackme.com/r/room/goldeneye)         | Medium                | [Tutaj](writeups/GoldenEye/README.md)    |
