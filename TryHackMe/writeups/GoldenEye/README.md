@@ -101,5 +101,62 @@ W źródle strony znajdujemy notatkę, która potwierdza fakt istnienia dwóch u
 
 ![Sup](img/Sup.JPG)
 
-Próby zalogowania się na konto Borisa na innych serwisach zakończyły się niepowodzeniem. W związku z tym próbujemy przeprowadzić atak za pomocą hydry na konto użytkownika Natalya:
+Próby zalogowania się na konto Borisa na innych serwisach zakończyły się niepowodzeniem. W związku z tym przeprowadzamy atak za pomocą hydry, w celu znalezienia innego hasła:
+
+```
+hydra -l Boris -P /usr/share/set/src/fasttrack/wordlist.txt 10.10.63.124 -s 55007 pop3
+```
+
+![Hydra](img/Hydra.JPG)
+
+```
+Boris:secret1!
+```
+
+Wykorzystujemy znalezione hasło, aby zalogować się do serwisu telnet skonfigurowanego na porcie 55007:
+
+```
+telnet 10.10.63.124 55007
+```
+
+![Telnet](img/Telnet.JPG)
+
+W serwisie znajdujemy wiadomości (emails). Dowiadujemy się z nich, że Natalya może złamać kody Borisa. Poznajemy też nową nazwę użytkownika - Xenia:
+
+![RETR](img/RETR.JPG)
+
+Kontynuujemy ataki za pomocą hydry, tym razem na użytkownika Natalya:
+
+![Hydra2](img/Hydra2.JPG)
+
+```
+Natalya:bird
+```
+
+Wykorzystujemy znalezione hasło, aby zalogować się do serwisu telnet skonfigurowanego na porcie 55007:
+
+![Telnet2](img/Telnet2.JPG)
+
+Odczytujemy dostępne wiadomości, z których otrzymujemy dane do logowania użytkwonika Xenia oraz adres tajemniczej strony (http://severnaya-station.com/gnocertdir/):
+
+![RETR2](img/RETR2.JPG)
+
+```
+xenia:RCP90rulez!
+```
+
+Dodajemy nowo poznaną stronę do pliku /etc/hosts:
+
+![Su](img/Su.JPG)
+
+Logujemy się do serwisu za pomocą znalezionych danych do logowania:
+
+```
+xenia:RCP90rulez!
+```
+
+![Moodle](img/Moodle.JPG)
+
+
+
 
