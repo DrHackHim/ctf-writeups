@@ -141,7 +141,7 @@ Ponownie logujemy się do serwisu POP3 za pomocą narzędzia telnet:
 
 ![Telnet2](img/Telnet2.JPG)
 
-Odczytujemy dostępne wiadomości, z których otrzymujemy dane do logowania użytkwonika Xenia oraz adres tajemniczej strony (severnaya-station.com/gnocertdir/):
+Odczytujemy dostępne wiadomości, z których otrzymujemy dane do logowania użytkownika Xenia oraz adres tajemniczej strony (severnaya-station.com/gnocertdir/):
 
 ![RETR2](img/RETR2.JPG)
 
