@@ -1,4 +1,4 @@
-# Cat Pictures II
+# GoldenEye
 IP=10.10.63.124
 
 ## Rekonesans
